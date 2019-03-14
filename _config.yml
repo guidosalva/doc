@@ -1,0 +1,5 @@
+remote_theme: pmarsceill/just-the-docs
+search_enabled: true
+aux_links:
+    "Guide to Scalaloci on Github":
+      - "//github.com/miterion/guide-to-scalaloci"
