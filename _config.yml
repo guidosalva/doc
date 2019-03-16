@@ -3,3 +3,5 @@ search_enabled: true
 aux_links:
     "Guide to Scalaloci on Github":
       - "//github.com/miterion/guide-to-scalaloci"
+
+theme: jekyll-theme-slate
