@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Placements
-parent: Concepts
+parent: Introduction
 nav_order: 2
 ---
 ## Placements
