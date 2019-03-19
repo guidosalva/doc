@@ -36,3 +36,10 @@ The syntax for variables is quite similar to the one for functions:
 ```scala
 val chats: Array[Strings] on Registry = placed { new Array[Strings](10)}
 ```
+
+## localOn
+Variables and functions defined with `on` are visible and accessible by all peers. If only local access on the peer is needed,
+the `localOn` directive can be used.
+```scala
+val local_chats: Array[Strings] localOn Registry = placed { new Array[Strings](5)}
+```
