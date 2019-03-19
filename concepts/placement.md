@@ -43,3 +43,9 @@ the `localOn` directive can be used.
 ```scala
 val local_chats: Array[Strings] localOn Registry = placed { new Array[Strings](5)}
 ```
+<div class="code-example" markdown="1">
+
+Warning
+{: .label .label-red }
+Functions with `localOn` have to explicitly return (have an return statement), even if they do not have any return values.
+</div>
