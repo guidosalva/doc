@@ -1,7 +1,7 @@
 remote_theme: pmarsceill/just-the-docs
 search_enabled: true
 aux_links:
-    "Guide to Scalaloci on Github":
-      - "//github.com/miterion/guide-to-scalaloci"
+    "Repo on Github":
+      - "//github.com/haaase/impl18"
 plugins:
   - jekyll-remote-theme
