@@ -30,6 +30,13 @@ placed[Server].main {
 ```
 
 If a function should be executed on a specific peer or the return type is needed, a `remote.on` block has to be used. Please see the [remote.on section](#remoteon) for more information on this topic.
+<span style="color:red;">**This is actually not true. It is possible to perform a remote call, then call `asLocal` and resolve the resulting future. See the following code:**</span>
+```scala
+// register on registry
+val fut = (remote call register(peer.listeningPort)).asLocal
+fut.foreach{others => println(s"The others: $others")}
+```
+
 ## Variables
 Accessing variables works by using the `asLocal` directive:
 ```scala
