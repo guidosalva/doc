@@ -2,9 +2,10 @@
 layout: default
 title: Remote Access
 parent: How Tos
-nav_order: 1
+nav_order: 2
 ---
 # Remote Access
+{: .no_toc }
 
 ## Table of contents
 {: .no_toc .text-delta }
