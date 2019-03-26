@@ -28,26 +28,12 @@ placed[Server].main {
     remote call increment() // executed an all Client instances
 }
 ```
-
-If a function should be executed on a specific peer or the return type is needed, a `remote.on` block has to be used. Please see the [remote.on section](#remoteon) for more information on this topic.
-<span style="color:red;">**This is actually not true. It is possible to perform a remote call, then call `asLocal` and resolve the resulting future. See the following code:**</span>
+If the return type is needed, the `asLocal` can be called on the remote call:
 ```scala
-// register on registry
-val fut = (remote call register(peer.listeningPort)).asLocal
-fut.foreach{others => println(s"The others: $others")}
+def increment() = placed[Client] {counter += 1; counter}
+val future_value = (remote call increment()).asLocal
 ```
 
-## Variables
-Accessing variables works by using the `asLocal` directive:
-```scala
-val counter = placed[Client] {0}
-val geigercounter = placed[Server] {0}
-
-placed[Client].main {
-    print(counter) // 0, the initial local value
-    print(counter.asLocalFromAll) // retrieve all connected counter values
-}
-```
 ### asLocal
 Depending on the `tie` type, a different access method has to be used.
 
@@ -64,6 +50,18 @@ There are two variants of the `asLocal` function, which allow accessing the unde
 
 `asLocal_!` is similar to the previous variant, but sets the duration to infinity, meaning it waits infinitely long for an result.
 
+
+## Variables
+Accessing variables works by using the `asLocal` directive:
+```scala
+val counter = placed[Client] {0}
+val geigercounter = placed[Server] {0}
+
+placed[Client].main {
+    print(counter) // 0, the initial local value
+    print(counter.asLocalFromAll) // retrieve all connected counter values
+}
+```
 
 ## remote.on
 Code written inside a `remote.on` expression is executed on a different peer.
