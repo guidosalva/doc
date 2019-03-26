@@ -29,7 +29,7 @@ placed[Server].main {
     remote call increment() // executed an all Client instances
 }
 ```
-If the return type is needed, the `asLocal` can be called on the remote call:
+If the return value is needed, `asLocal` hast to be called on the expression:
 ```scala
 def increment() = placed[Client] {counter += 1; counter}
 val future_value = (remote call increment()).asLocal
